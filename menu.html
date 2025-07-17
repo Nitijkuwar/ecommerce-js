@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <title>Responsive Cafe Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white text-gray-800">
+    <nav class="bg-white shadow-md text-2xl sticky top-0">
+        <div class="flex justify-between items-center h-16 mx-auto px-4 sm:px-6 lg:px-8 md:justify-around">
+            <div class="text-2xl font-bold text-green-700">Cafe</div>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 font-medium">
+                <a href="index.html" class="hover:text-green-600 transition">Home</a>
+                <a href="about.html" class="hover:text-green-600 transition">About</a>
+                <a href="/" class="hover:text-green-600 transition">Menu</a>
+                <a href="special.html" class="hover:text-green-600 transition">Special</a>
+                <a href="contact.html" class="hover:text-green-600 transition">Contact</a>
+                <a href="cart.html" class="hover:text-green-600 transition">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <a href="login.html" class="hover:text-green-600 transition">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-3xl focus:outline-none">&#9776;</button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 text-center space-y-2 font-medium">
+            <a href="index.html" class="block hover:text-green-600 transition">Home</a>
+            <a href="about.html" class="block hover:text-green-600 transition">About</a>
+            <a href="/" class="block hover:text-green-600 transition">Menu</a>
+            <a href="special.html" class="block hover:text-green-600 transition">Special</a>
+            <a href="contact.html" class="block hover:text-green-600 transition">Contact</a>
+            <a href="cart.html" class="hover:text-green-600 transition">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+            <a href="login.html" class="hover:text-green-600 transition">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+    </nav>
+    <!-- Menu -->
+    <section class="flex flex-col items-center justify-center min-h-screen px-4 py-10">
+        <h2 class="text-4xl font-bold mb-6">Our Menu</h2>
+
+        <!-- Tab Buttons -->
+        <div class="flex gap-4 mb-6">
+            <button id="veg-tab" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
+                Veg
+            </button>
+            <button id="nonveg-tab" class="px-4 py-2 bg-gray-300 text-black rounded hover:bg-gray-400">
+                Non-Veg
+            </button>
+        </div>
+
+        <!-- Veg Menu -->
+        <div id="veg-menu" class="flex flex-wrap justify-center gap-3 text-center mt-4 px-2">
+            <p class="hover:bg-gray-300 rounded-3xl py-2 px-5 cursor-pointer">All</p>
+            <p class="hover:bg-gray-300 rounded-3xl py-2 px-5 cursor-pointer">Burger</p>
+            <p class="hover:bg-gray-300 rounded-3xl py-2 px-5 cursor-pointer">Pizza</p>
+            <p class="hover:bg-gray-300 rounded-3xl py-2 px-5 cursor-pointer">MoMo</p>
+            <p class="hover:bg-gray-300 rounded-3xl py-2 px-5 cursor-pointer">Biryani</p>
+            <p class="hover:bg-gray-300 rounded-3xl py-2 px-5 cursor-pointer">Pasta</p>
+        </div>
+
+
+        <!-- Non-Veg Menu (hidden by default) -->
+        <div id="nonveg-menu" class="flex flex-wrap justify-center gap-3 text-center mt-4 px-2 hidden">
+            <p class=" hover:bg-gray-300 rounded-3xl py-3 px-5 cursor-pointer">All</p>
+            <p class=" hover:bg-gray-300 rounded-3xl py-3 px-5 cursor-pointer">Burger</p>
+            <p class=" hover:bg-gray-300 rounded-3xl py-3 px-5 cursor-pointer">Pizza</p>
+            <p class=" hover:bg-gray-300 rounded-3xl py-3 px-5 cursor-pointer">MoMo</p>
+            <p class=" hover:bg-gray-300 rounded-3xl py-3 px-5 cursor-pointer">Biryani</p>
+        </div>
+        <!-- Veg items -->
+        <div class="grid grid-cols-1 gap-8 p-5 :grid-cols-3 lg:grid-cols-4 main" id="veg">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/burger/Aloo-Tikki.jpg"
+                    style="background-image: url('assets/image/veg/burger/Aloo-Tikki.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 product-name">Aloo Tikki Burger</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 150</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity1" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/burger/veggie-burgers.webp"
+                    style="background-image: url('assets/image/veg/burger/veggie-burgers.webp')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Veggie Burger</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 120</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/burger/Mushroom-Burgers.jpg"
+                    style="background-image: url('assets/image/veg/burger/Mushroom-Burgers.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Mushroom Burger</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 130</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/burger/paneer-burger.jpg"
+                    style="background-image: url('assets/image/veg/burger/paneer-burger.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Paneer Burger</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 180</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- pizza -->
+            <!-- Card 5 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/pizza/corn.jpg"
+                    style="background-image: url('assets/image/veg/pizza/corn.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Corn & Capsicum Pizza</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 400</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/pizza/garlic-mushroom.webp"
+                    style="background-image: url('assets/image/veg/pizza/garlic-mushroom.webp')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">garlic mushroom Pizza</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 420</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- card 6 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/pizza/margherita.webp"
+                    style="background-image: url('assets/image/veg/pizza/margherita.webp')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Margherita Pizza</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 450</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- card7 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/pizza/garlic-mushroom.webp"
+                    style="background-image: url('assets/image/veg/pizza/garlic-mushroom.webp')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">garlic mushroom Pizza</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 430</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- card 8 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/pizza/Paneer-tikka.jpg"
+                    style="background-image: url('assets/image/veg/pizza/Paneer-tikka.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Paneer-tikka Pizza</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 450</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- card9 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/pizza/supreme-pizza.jfif"
+                    style="background-image: url('assets/image/veg/pizza/supreme-pizza.jfif')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name"> Veggie Supreme Pizza</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 480</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- MOMO -->
+            <!-- card 10 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/momo/paneer.avif"
+                    style="background-image: url('assets/image/veg/momo/paneer.avif')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name"> Paneer momo</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 100</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- card11 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/momo/spinach-cheese.avif"
+                    style="background-image: url('assets/image/veg/momo/spinach-cheese.avif')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name"> spinach-cheese momo</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 90</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- card12 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/momo/Veggie-Momos.jpg"
+                    style="background-image: url('assets/image/veg/momo/Veggie-Momos.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name"> Veggie momo</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 80</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- Biryani -->
+            <!-- card13 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/biryani/mushroom-biryani.jpg"
+                    style="background-image: url('assets/image/veg/biryani/mushroom-biryani.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Mushroom biryani</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 150</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- card14 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/biryani/paneer-biryani.jpg"
+                    style="background-image: url('assets/image/veg/biryani/paneer-biryani.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Paneer biryani</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 170</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- card15 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/biryani/soya.jfif"
+                    style="background-image: url('assets/image/veg/biryani/soya.jfif')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Soya biryani</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 110</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- card16 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/biryani/VegBiryani.jpg"
+                    style="background-image: url('assets/image/veg/biryani/VegBiryani.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Mixed Veg biryani</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 150</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- pasta -->
+            <!-- card17 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/pasta/Arrabbiata.avif"
+                    style="background-image: url('assets/image/veg/pasta/Arrabbiata.avif')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Arrabbiata Pasta</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 150</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- card18 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/pasta/Pasta-Primavera.jpg"
+                    style="background-image: url('assets/image/veg/pasta/Pasta-Primavera.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Veg Primavera Pasta </h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 170</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- card19 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/pasta/pesto-pasta.jpg"
+                    style="background-image: url('assets/image/veg/pasta/pesto-pasta.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Pesto Pasta with veggies
+
+                    </h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 180</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- card19 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/pasta/Vegan-Alfredo.jpg"
+                    style="background-image: url('assets/image/veg/pasta/Vegan-Alfredo.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Veg Alfredo Pasta
+
+
+
+                    </h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 170</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- nonveg -->
+        <!-- burger -->
+        <div class="grid grid-cols-1 gap-8 p-5 :grid-cols-3 lg:grid-cols-4 hidden main" id="non-veg">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/non-veg/burger/chicken-burgers.avif"
+                    style="background-image: url('assets/image/non-veg/burger/chicken-burgers.avif')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 product-name">chicken burger</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 200</p>
+
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity1" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/non-veg/burger/chicken-zinger.jpg"
+                    style="background-image: url('assets/image/non-veg/burger/chicken-zinger.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">chicken zinger Burger</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 250</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/non-veg/burger/grilled-chicken.jfif"
+                    style="background-image: url('assets/image/non-veg/burger/grilled-chicken.jfif')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">grilled Chicken Burger</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 280</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/non-veg/burger/tandoori.jfif"
+                    style="background-image: url('assets/image/non-veg/burger/tandoori.jfif')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Tandori Burger</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 220</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- pizza -->
+            <!-- Card 5 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/veg/non-veg/pizza/chicken-tikka.png"
+                    style="background-image: url('assets/image/non-veg/pizza/chicken-tikka.png')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">chicken tikka Pizza(s)</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 500</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/non-veg/pizza/chicken-sausage.jpg"
+                    style="background-image: url('assets/image/non-veg/pizza/chicken-sausage.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">chicken sausage Pizza(S)</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 520</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- card 6 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/non-veg/pizza/chicken-supreme-pizza.webp"
+                    style="background-image: url('assets/image/non-veg/pizza/chicken-supreme-pizza.webp')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">chicken supreme Pizza(s)</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 520</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- card7 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/non-veg/pizza/bbq-chicken-pizza.jpg"
+                    style="background-image: url('assets/image/non-veg/pizza/bbq-chicken-pizza.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">BBQ chicken Pizza(s)</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 510</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- momo -->
+            <!-- card 8 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/non-veg/momo/Chicken_Momo.jpg"
+                    style="background-image: url('assets/image/non-veg/momo/Chicken_Momo.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Chicken momo</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 100</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- card9 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/non-veg/momo/chicken-fried.cms"
+                    style="background-image: url('assets/image/non-veg/momo/chicken-fried.cms')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name"> Chicken Fried momo</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 150</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- MOMO -->
+            <!-- card 10 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/non-veg/momo/chicken-c-momo.jfif"
+                    style="background-image: url('assets/image/non-veg/momo/chicken-c-momo.jfif')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name"> Chcken C momo</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 140</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- Biryani -->
+            <!-- card11 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/non-veg/biryani/chicken-biryani.jpg"
+                    style="background-image: url('assets/image/non-veg/biryani/chicken-biryani.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name"> chicken biryani</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 150</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- card12 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/non-veg/biryani/chicken-dum.jpg"
+                    style="background-image: url('assets/image/non-veg/biryani/chicken-dum.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name"> Chicken Dum Biryani</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 180</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- Biryani -->
+            <!-- card13 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/non-veg/biryani/chicken-hyderabadi-biryani.jpg"
+                    style="background-image: url('assets/image/non-veg/biryani/chicken-hyderabadi-biryani.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Hydrabadi Chicken biryani</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 200</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- card14 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/non-veg/biryani/egg-biryani.jpg"
+                    style="background-image: url('assets/image/non-veg/biryani/egg-biryani.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Egg biryani</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 100</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1f2937] text-gray-300 py-10">
+        <div class="max-w-[75%] mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10">
+            <div class="md:col-span-1">
+                <h2 class="text-3xl font-bold text-orange-400 mb-4">Brew & Bite</h2>
+                <p class="text-lg">Where flavors meet comfort. From handcrafted brews to delicious bites, we serve
+                    joy every day.</p>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold mb-3 text-white">Quick Links</h4>
+                <ul class="space-y-2 text-xl">
+                    <li><a href="index.html" class="hover:text-orange-400 transition">Home</a></li>
+                    <li><a href="about.html" class="hover:text-orange-400 transition">About</a></li>
+                    <li><a href="menu.html" class="hover:text-orange-400 transition">Menu</a></li>
+                    <li><a href="special.html" class="hover:text-orange-400 transition">Specials</a></li>
+                    <li><a href="contact.html" class="hover:text-orange-400 transition">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-2xl font-semibold mb-3">Opening Hours</h4>
+                <ul class="text-xl text-gray-200 space-y-1">
+                    <li>sun - Fri: 8 AM – 8 PM</li>
+                    <li>sat: Closed</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-2xl font-semibold mb-3 text-white">Contact</h4>
+                <p class="text-xl">Biratnagar, Nepal</p>
+                <p class="text-xl">Phone: <a href="tel:+9779800000000" class="hover:text-orange-400">+977-9800000000</a>
+                </p>
+                <p class="text-xl">Email: <a href="mailto:info@brewandbite.com"
+                        class="hover:text-orange-400">info@brewandbite.com</a></p>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold mb-3 text-white">Follow Us</h4>
+                <div class="flex space-x-4 text-2xl">
+                    <a href="#" class="hover:text-orange-400 transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-orange-400 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-orange-400 transition"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-xl text-gray-400 mt-10 border-t border-gray-600 pt-4">
+            &copy; <span id="year"></span> Brew & Bite. Crafted with love in Nepal.
+        </div>
+    </footer>
+
+</body>
+<script src="script.js"> </script>
+
+</html>

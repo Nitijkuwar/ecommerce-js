@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <title>Responsive Cafe Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white text-gray-800">
+    <nav class="bg-white shadow-md text-2xl sticky top-0">
+        <div class="flex justify-between items-center h-16 mx-auto px-4 sm:px-6 lg:px-8 md:justify-around">
+            <div class="text-2xl font-bold text-green-700">Cafe</div>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 font-medium">
+                <a href="index.html" class="hover:text-green-600 transition">Home</a>
+                <a href="about.html" class="hover:text-green-600 transition">About</a>
+                <a href="menu.html" class="hover:text-green-600 transition">Menu</a>
+                <a href="/" class="hover:text-green-600 transition">Special</a>
+                <a href="contact.html" class="hover:text-green-600 transition">Contact</a>
+                <a href="cart.html" class="hover:text-green-600 transition">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <a href="login.html" class="hover:text-green-600 transition">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-3xl focus:outline-none">&#9776;</button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 text-center space-y-2 font-medium">
+            <a href="index.html" class="block hover:text-green-600 transition">Home</a>
+            <a href="about.html" class="block hover:text-green-600 transition">About</a>
+            <a href="menu.html" class="block hover:text-green-600 transition">Menu</a>
+            <a href="/" class="block hover:text-green-600 transition">Special</a>
+            <a href="contact.html" class="block hover:text-green-600 transition">Contact</a>
+            <a href="cart.html" class="hover:text-green-600 transition">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+            <a href="login.html" class="hover:text-green-600 transition">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+    </nav>
+    <!-- //special -->
+    <section class="px-[50px]">
+        <h1 class="text-4xl">Our Special</h1>
+        <div class="grid grid-cols-1 gap-8 p-5 :grid-cols-3 lg:grid-cols-4">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/special/cream-cheese-stuffed-chicken-breast.jpg"
+                    style="background-image: url('assets/image/special/cream-cheese-stuffed-chicken-breast.jpg')">
+                </div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 product-name">Stuffed Chicken Breast with Creamy Spinach</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 300</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity1" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/special/mango-chicken-curry.jpeg"
+                    style="background-image: url('assets/image/special/mango-chicken-curry.jpeg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Mango Chicken Curry (Summer)</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 250</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/special/sizzling_brownie.jpg"
+                    style="background-image: url('assets/image/special/sizzling_brownie.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Sizzling Brownie with Ice Cream</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 350</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/special/Strawberry-Spinach-Salad.jpg"
+                    style="background-image: url('assets/image/special/Strawberry-Spinach-Salad.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Strawberry Spinach Salad (Spring)</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 220</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/special/lemon-garlic.jpg"
+                    style="background-image: url('assets/image/special/lemon-garlic.jpg')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Lemon Garlic Butter Lamb Chops</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 400</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="bg-white rounded-lg shadow-md w-70 product">
+                <div class="w-full h-48 rounded-t-md bg-cover bg-center product-image"
+                    data-img="assets/image/special/chocolate-moltin-lava-cake.webp"
+                    style="background-image: url('assets/image/special/chocolate-moltin-lava-cake.webp')"></div>
+                <div class="p-4">
+                    <h3 class="text-xl font-700 mb-2 capitalize product-name">Chocolate Molten Lava Cake</h3>
+                    <p class="text-gray-700 text-lg mb-2 product-price">Rs. 260</p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input id="quantity2" type="number" min="1" value="1"
+                            class="w-20 px-3 py-2 border rounded-md text-center product-quantity" />
+                    </div>
+                    <button
+                        class="add-to-cart bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- Footer -->
+    <footer class="bg-[#1f2937] text-gray-300 py-10">
+        <div class="max-w-[75%] mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10">
+            <div class="md:col-span-1">
+                <h2 class="text-3xl font-bold text-orange-400 mb-4">Brew & Bite</h2>
+                <p class="text-lg">Where flavors meet comfort. From handcrafted brews to delicious bites, we serve
+                    joy every day.</p>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold mb-3 text-white">Quick Links</h4>
+                <ul class="space-y-2 text-xl">
+                    <li><a href="index.html" class="hover:text-orange-400 transition">Home</a></li>
+                    <li><a href="about.html" class="hover:text-orange-400 transition">About</a></li>
+                    <li><a href="menu.html" class="hover:text-orange-400 transition">Menu</a></li>
+                    <li><a href="special.html" class="hover:text-orange-400 transition">Specials</a></li>
+                    <li><a href="contact.html" class="hover:text-orange-400 transition">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-2xl font-semibold mb-3">Opening Hours</h4>
+                <ul class="text-xl text-gray-200 space-y-1">
+                    <li>sun - Fri: 8 AM – 8 PM</li>
+                    <li>sat: Closed</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-2xl font-semibold mb-3 text-white">Contact</h4>
+                <p class="text-xl">Biratnagar, Nepal</p>
+                <p class="text-xl">Phone: <a href="tel:+9779800000000" class="hover:text-orange-400">+977-9800000000</a>
+                </p>
+                <p class="text-xl">Email: <a href="mailto:info@brewandbite.com"
+                        class="hover:text-orange-400">info@brewandbite.com</a></p>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold mb-3 text-white">Follow Us</h4>
+                <div class="flex space-x-4 text-2xl">
+                    <a href="#" class="hover:text-orange-400 transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-orange-400 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-orange-400 transition"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-xl text-gray-400 mt-10 border-t border-gray-600 pt-4">
+            &copy; <span id="year"></span> Brew & Bite. Crafted with love in Nepal.
+        </div>
+    </footer>
+</body>
+<script src="script.js"></script>
+
+</html>
